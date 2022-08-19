@@ -1,0 +1,11 @@
+.logo-container {
+	background-color: #47bcff;
+	color: #fff;
+}
+
+.logo {
+	font-family: 'Handlee', cursive;
+	font-size: 2.5rem;
+	text-decoration: none;
+	color: inherit;
+}

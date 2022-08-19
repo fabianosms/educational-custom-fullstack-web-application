@@ -1,0 +1,22 @@
+<head th:fragment="head">
+	<meta charset = "UTF-8"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+	<link th:href="@{/css/estilo.css}" rel="stylesheet">
+	<link rel="icon" type="image/ico" th:href="@{../static/favicon.ico}">
+</head>
+
+<div th:fragment="logo" class="logo-container mb-3 p-3 d-flex justify-content-between align-items-center">
+	<a class="logo" href="/home">mudi</a>
+	<span>
+		<a class="text-light text-decoration-none" sec:authorize="!isAuthenticated()" href="/login">Login</a>
+		<a class="text-light text-decoration-none" sec:authorize="isAuthenticated()" href="/ofertas">Fazer oferta</a>
+		<a class="text-light text-decoration-none" sec:authorize="isAuthenticated()" href="/user/pedidos">Meus pedidos</a>
+		<a onclick="document.querySelector('#form-login').submit()" class="text-light text-decoration-none" sec:authorize="isAuthenticated()" href="#">Logout</a>
+		<form id="form-login" th:action="@{/logout}" method="post"></form>
+	</span>
+</div>
+
+<div th:fragment="jumbotron(texto)" class="container h-130 p-5 bg-light rounded-3 mb-3">
+	<h1 th:text="${texto}"></h1>
+</div>

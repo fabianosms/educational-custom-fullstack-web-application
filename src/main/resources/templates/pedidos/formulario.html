@@ -1,0 +1,40 @@
+<html>
+	<head th:replace="~{topo :: head}"></head>
+	<div th:replace="~{topo :: logo}"></div>
+	<body>
+		<div th:replace="~{topo :: jumbotron('Novo pedido')}"></div>
+		<div class="card mt-3 mx-auto" style="width: 50rem;">
+			<form th:object="${requisicaoNovoPedido}" class="card-body" th:action="@{/pedidos/novo}" method="POST">
+				<div class="mb-3">
+					<label for="nomeProduto" class="form-label">Produto</label>
+					<input th:field="*{nomeProduto}" th:errorclass="is-invalid" class="form-control" placeholder="nome do produto"/>
+					<small>Informe o nome do produto</small>
+				</div>
+				<div class="invalid-feedback" th:errors="*{nomeProduto}">
+					Erros
+				</div>
+				<div class="mb-3">
+					<label for="urlProduto" class="form-label">URL do Produto</label>
+					<input th:field="*{urlProduto}" th:errorclass="is-invalid" class="form-control" placeholder="URL do produto"/>
+					<small>Procure em um site o produto correspondente e cole aqui a URL da página</small>
+				</div>
+				<div class="invalid-feedback" th:errors="*{urlProduto}">
+					Erros
+				</div>
+				<div class="mb-3">
+					<label for="urlImagem" class="form-label">Imagem</label>
+					<input th:field="*{urlImagem}" th:errorclass="is-invalid" class="form-control" placeholder="URL da imagem"/>
+					<small>Copie a URL de uma boa imagem do produto e cole aqui para ajudar a encontrar compradores</small>
+				</div>
+				<div class="invalid-feedback" th:errors="*{urlImagem}">
+					Erros
+				</div>
+				<div class="mb-3">
+					<label for="descricao" class="form-label">Descrição</label>
+					<textarea th:field="*{descricao}" class="form-control" placeholder="Adicione detalhes importantes para ajudar o comprador"></textarea>
+				</div>
+				<button class="btn btn-primary" type="submit">Cadastrar</button>
+			</form>
+		</div>
+	</body>
+</html>
